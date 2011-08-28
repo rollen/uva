@@ -1,0 +1,30 @@
+require 'rubygems'
+require 'rake'
+require 'open3'
+
+task :run do
+  while true do
+    begin
+    sh 'g++ -lm -02 -pipe -ansi -DONLINE_JUDGE 392.cpp'
+    sh './a.out < input.in'
+    rescue
+    ensure
+      sleep(5)
+      sh 'clear'
+    end
+  end
+end
+
+task :test do
+  while true do
+    begin
+      sh 'g++ -lm -02 -pipe -ansi -DONLINE_JUDGE 392.cpp'
+      sh './a.out test'
+    rescue
+
+    ensure
+      sleep(5)
+      sh 'clear'
+    end
+  end
+end
